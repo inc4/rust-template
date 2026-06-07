@@ -1,6 +1,6 @@
 # rust-template
 
-[![Checks](https://github.com/inc4/rust-template/workflows/Checks/badge.svg)](https://github.com/inc4/rust-template/actions?query=workflow%3A%22Checks%22)
+[![Checks](https://github.com/inc4/rust-template/actions/workflows/checks.yaml/badge.svg)](https://github.com/inc4/rust-template/actions/workflows/checks.yaml)
 
 This template can be used when creating a new Rust repository. Choose it when
 you create a repository in the GitHub web interface, or use `--template` flag
@@ -27,21 +27,21 @@ with `gh repo create`.
 ## Build and run
 
 ```sh
-cargo run -- --listen 0.0.0.0:8080
+cargo run
 curl localhost:8080/hello
 ```
 
 ## Check, lint, test
 
 ```sh
-cargo fmt --all -- --check
-cargo clippy --tests -- -D warnings
+cargo fmt --all
+cargo clippy --tests
 cargo test
 ```
 
 ## Docker
 
 ```sh
-docker build -t rust-template .
+docker buildx build -t rust-template --load .
 docker run --rm -p 8080:8080 rust-template
 ```
